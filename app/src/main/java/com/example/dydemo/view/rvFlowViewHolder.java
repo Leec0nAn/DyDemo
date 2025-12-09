@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.dydemo.R;
-import com.example.dydemo.model.DyVideo;
+import com.example.dydemo.bean.TiktokBean;
+import com.example.dydemo.until.LogUtil;
 
 public class rvFlowViewHolder extends RecyclerView.ViewHolder {
+    static final String TAG = "MainActivity";
     ImageView rv_item_image;
     ImageView rv_item_user;
     TextView rv_item_title;
@@ -26,14 +28,18 @@ public class rvFlowViewHolder extends RecyclerView.ViewHolder {
         rv_item_like = itemView.findViewById(R.id.rv_item_like_tv);
     }
 
-    public void bind(DyVideo data) {
+    public void bind(TiktokBean data) {
         if (data == null) return;
-        rv_item_image.setImageResource(data.getImg_url());
+        LogUtil.d(TAG,data.getCoverImgUrl());
+        Glide.with(rv_item_image.getContext())
+                        .load(data.getCoverImgUrl())
+                        .error(R.mipmap.default_image)
+                        .into(rv_item_image);
         rv_item_title.setText(data.getTitle());
-        rv_item_username.setText(data.getUser_name());
-        rv_item_like.setText(String.valueOf(data.getLike_count()));
+        rv_item_username.setText(data.getAuthorName());
+        rv_item_like.setText(String.valueOf(data.getLikeCount()));
         Glide.with(rv_item_user.getContext())
-                .load(data.getVideo_url())
+                .load(data.getAuthorImgUrl())
                 .circleCrop()
                 .into(rv_item_user);
     }

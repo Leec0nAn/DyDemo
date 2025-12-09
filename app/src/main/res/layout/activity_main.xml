@@ -21,11 +21,13 @@
             android:paddingEnd="10dp"
             />
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/topbar_rv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/menu"
-            android:layout_alignStart="@+id/menu"
-            android:layout_marginStart="20dp"/>
+            android:layout_toStartOf="@+id/search"
+
+        />
         <ImageView
             android:id="@+id/search"
             android:layout_width="20dp"
@@ -34,14 +36,16 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"/>
     </RelativeLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_flow_layout"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/main_topbar"
         android:layout_above="@id/main_bottombar"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"/>
+        android:layout_marginTop="5dp"
+        app:navGraph="@navigation/nav_graph"
+        app:defaultNavHost="true"/>
     <include
         android:id="@+id/main_bottombar"
         layout="@layout/view_home_actionbar"

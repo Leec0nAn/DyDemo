@@ -10,20 +10,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.dydemo.R;
-import com.example.dydemo.model.DyVideo;
+import com.example.dydemo.bean.TiktokBean;
 import com.example.dydemo.view.rvFlowViewHolder;
 
 import java.util.List;
 
     public class rvFlowAdapter extends RecyclerView.Adapter<rvFlowViewHolder> {
-    private List<DyVideo> mData;
+    private List<TiktokBean> mData;
 
-    public rvFlowAdapter(List<DyVideo> data) {
+    public rvFlowAdapter(List<TiktokBean> data) {
         this.mData = data;
     }
 
     public interface OnItemClickListener {
-        void onItemClick(View view, DyVideo data);
+        void onItemClick(View view, TiktokBean data, int position);
     }
     private OnItemClickListener mItemClickListener;
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -45,11 +45,11 @@ import java.util.List;
             @Override
             public void onClick(View v) {
                 if (mItemClickListener != null) {
-                    mItemClickListener.onItemClick(v, mData.get(position));
+                    mItemClickListener.onItemClick(v, mData.get(position), position);
                 }
             }
         });
-        DyVideo data = mData.get(position);
+        TiktokBean data = mData.get(position);
         holder.bind(data);
     }
 

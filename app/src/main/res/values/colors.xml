@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background">#FFF6F6F6</color>
     <color name="window_background">#FFF6F6F6</color>
+    <color name="vide_bottom_bar">#FF2B292A</color>
+    <color name="vide_bg">#FF030303</color>
+    <color name="vide_bottom_edit_color">#FF939192</color>
+    <color name="vide_bottomsheet_edit_color">#FFF3F3F1</color>
+    <color name="vide_bottomsheet_edit_send">#FFFD2F55</color>
 </resources>
