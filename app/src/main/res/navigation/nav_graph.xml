@@ -6,51 +6,51 @@
 
     <fragment
         android:id="@+id/mainActivity_MainFragment"
-        android:name="com.example.dydemo.fragment.MainActivity_MainFragment"
+        android:name="com.example.dydemo.Recommend.fragment.MainActivity_MainFragment"
         android:label="首页" >
     </fragment>
 
     <fragment
         android:id="@+id/mainActivity_FriendsFragment"
-        android:name="com.example.dydemo.fragment.MainActivity_FriendsFragment"
+        android:name="com.example.dydemo.Recommend.fragment.MainActivity_FriendsFragment"
         android:label="朋友" >
     </fragment>
 
     <fragment
         android:id="@+id/mainActivity_MessageFragment"
-        android:name="com.example.dydemo.fragment.MainActivity_MessageFragment"
+        android:name="com.example.dydemo.Recommend.fragment.MainActivity_MessageFragment"
         android:label="消息" >
     </fragment>
 
     <fragment
         android:id="@+id/mainActivity_MineFragment"
-        android:name="com.example.dydemo.fragment.MainActivity_MineFragment"
+        android:name="com.example.dydemo.Recommend.fragment.MainActivity_MineFragment"
         android:label="我的" >
     </fragment>
 
     <fragment
         android:id="@+id/mainActivity_ShopFragment"
-        android:name="com.example.dydemo.fragment.MainActivity_ShopFragment"
+        android:name="com.example.dydemo.Recommend.fragment.MainActivity_ShopFragment"
         android:label="购物" />
     <fragment
         android:id="@+id/mainActivity_ExperienceFragment"
-        android:name="com.example.dydemo.fragment.MainActivity_ExperienceFragment"
+        android:name="com.example.dydemo.Recommend.fragment.MainActivity_ExperienceFragment"
         android:label="经验" />
     <fragment
         android:id="@+id/mainActivity_CityFragment"
-        android:name="com.example.dydemo.fragment.MainActivity_CityFragment"
+        android:name="com.example.dydemo.Recommend.fragment.MainActivity_CityFragment"
         android:label="同城" />
     <fragment
         android:id="@+id/mainActivity_FollowFragment"
-        android:name="com.example.dydemo.fragment.MainActivity_FollowFragment"
+        android:name="com.example.dydemo.Recommend.fragment.MainActivity_FollowFragment"
         android:label="关注" />
     <fragment
         android:id="@+id/mainActivity_MallFragment"
-        android:name="com.example.dydemo.fragment.MainActivity_MallFragment"
+        android:name="com.example.dydemo.Recommend.fragment.MainActivity_MallFragment"
         android:label="商城" />
     <fragment
         android:id="@+id/mainActivity_RecommendFragment"
-        android:name="com.example.dydemo.fragment.MainActivity_RecommendFragment"
+        android:name="com.example.dydemo.Recommend.fragment.MainActivity_RecommendFragment"
         android:label="推荐" />
 
 </navigation>
