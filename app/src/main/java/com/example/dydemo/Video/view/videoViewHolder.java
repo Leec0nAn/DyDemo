@@ -45,6 +45,13 @@ public class videoViewHolder extends RecyclerView.ViewHolder {
         videoCommentImg = itemView.findViewById(R.id.video_comment_img);
         videoUserImg = itemView.findViewById(R.id.video_user_img);
     }
+
+    /**
+     * 更新整个item的方法
+     * @param data
+     * @param commentListener 点击评论的监听接口
+     * @param toggleListener 点击收藏/点赞的监听接口
+     */
     public void bindData(TiktokBean data, videoAdapter.OnOpenCommentsListener commentListener, videoAdapter.OnToggleActionListener toggleListener) {
         videoTitle.setText(data.getTitle());
         videoAuthor.setText(data.getAuthorName());
@@ -118,6 +125,10 @@ public class videoViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
+    /**
+     * 只更新侧边栏的方法
+     * @param data
+     */
     public void bindActionsOnly(TiktokBean data) {
         if (videoLikeImg == null) videoLikeImg = itemView.findViewById(R.id.video_like_img);
         if (videoFavoriteImg == null) videoFavoriteImg = itemView.findViewById(R.id.video_favorite_img);

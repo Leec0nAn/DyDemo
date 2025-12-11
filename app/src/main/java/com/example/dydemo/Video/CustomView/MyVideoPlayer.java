@@ -1,15 +1,5 @@
 package com.example.dydemo.Video.CustomView;
 
-/**
- * 轻量视频播放组件，基于 ExoPlayer 封装。
- * 功能要点：
- * - 懒初始化 PlayerView/ExoPlayer，避免不必要的资源占用
- * - startPlayLogic：绑定 MediaItem 并启动播放；支持循环播放
- * - pause/pauseForScroll：区分用户手动暂停与滚动导致的暂停
- * - preload：预加载下一条媒体，提升翻页后的启动速度
- * - releasePlayer：及时释放以避免泄漏；在 onDetachedFromWindow 做安全释放
- * - 叠加层：缩略图与开始按钮的显示/隐藏与播放状态联动
- */
 
 import android.content.Context;
 import android.util.AttributeSet;

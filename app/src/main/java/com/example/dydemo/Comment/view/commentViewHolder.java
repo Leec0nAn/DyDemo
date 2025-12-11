@@ -28,6 +28,11 @@ public class commentViewHolder extends RecyclerView.ViewHolder {
         comment_ip_date = itemView.findViewById(R.id.comment_date_ip);
         comment_user_image = itemView.findViewById(R.id.comment_user_image);
     }
+
+    /**
+     * item更新调用 更新yi
+     * @param data
+     */
     public void bind(CommentBean data){
         CommentUser user = data.getUser();
         comment_user_name.setText(user.getUserName());

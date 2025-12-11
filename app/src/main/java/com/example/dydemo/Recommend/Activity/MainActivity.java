@@ -19,12 +19,16 @@ import com.example.dydemo.DataManager.DyDataInstance;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
+    //使用viewbinding来获取xml的控件id
     ActivityMainBinding binding;
+    //NavController用于跳转fragment
     private NavController navController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //初始化本地数据
         DyDataInstance.getInstance().init(this);
+        //获取viewbinding
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         NavHostFragment host = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
@@ -34,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * 初始化顶部bar方法
+     */
     private void initTopbar() {
         LinearLayoutManager lm = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         binding.topbarRv.setLayoutManager(lm);
@@ -64,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 初始化底部bar方法
+     */
     private void initBottomBar() {
         View home = findViewById(R.id.bottombar_home);
         View friends = findViewById(R.id.bottombar_friends);
@@ -89,6 +99,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    /**
+     * 用于处理点击bar的按钮 切换的ui变化
+     * @param selected
+     */
     private void setBottomSelected(View selected) {
         TextView homeTv = findViewById(R.id.bottombar_home);
         TextView friendsTv = findViewById(R.id.bottombar_friends);

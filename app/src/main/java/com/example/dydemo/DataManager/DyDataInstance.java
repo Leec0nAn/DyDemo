@@ -24,6 +24,11 @@ public class DyDataInstance {
     private DyDataInstance() {
         // 私有构造函数，防止外部直接实例化
     }
+
+    /**
+     * 使用双重检查锁定实现单例模式
+     * @return
+     */
     public static DyDataInstance getInstance() {
         if (instance == null) {
             synchronized (DyDataInstance.class) {
@@ -34,6 +39,11 @@ public class DyDataInstance {
         }
         return instance;
     }
+
+    /**
+     * 初始数据方法
+     * @param context
+     */
     public void init(Context context){
         tiktokDataList.addAll(DataUntil.parseFromAssets(context, "tiktok_data"));
     }
@@ -46,6 +56,11 @@ public class DyDataInstance {
             tiktokDataList.addAll(datalist);
     }
 
+    /**
+     * 将数据写回Json文件方法
+     * @param context
+     * @return
+     */
     public boolean writeToJsonFile(Context context) {
         try {
             List<TiktokBean> snapshot = new ArrayList<>(tiktokDataList);

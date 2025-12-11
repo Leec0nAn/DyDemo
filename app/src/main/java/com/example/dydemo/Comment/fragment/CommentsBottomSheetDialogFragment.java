@@ -45,6 +45,11 @@ public class CommentsBottomSheetDialogFragment extends BottomSheetDialogFragment
     private CommentAdapter adapter;
     private TextView count;
 
+    /**
+     * 创建DialogFragment对象
+     * @param t
+     * @return
+     */
     public static CommentsBottomSheetDialogFragment newInstance(TiktokBean t) {
         CommentsBottomSheetDialogFragment f = new CommentsBottomSheetDialogFragment();
         Bundle b = new Bundle();
@@ -68,6 +73,7 @@ public class CommentsBottomSheetDialogFragment extends BottomSheetDialogFragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.bottom_comment_view, container, false);
+        //获得当前页面的数据
         if (getArguments() != null) {
             Object obj = getArguments().getSerializable(ARG_TIKTOK);
             if (obj instanceof TiktokBean) {
@@ -81,7 +87,6 @@ public class CommentsBottomSheetDialogFragment extends BottomSheetDialogFragment
         btnClose = root.findViewById(R.id.comment_close);
         EditText et = root.findViewById(R.id.comment_et);
         TextView send = root.findViewById(R.id.comment_send);
-        View inputRow = root.findViewById(R.id.comment_input_row);
 
         if (tiktok != null) {
             count.setText(NumberFormatUtil.formatCountCn(tiktok.getCommentCount())+"条评论");
@@ -95,7 +100,7 @@ public class CommentsBottomSheetDialogFragment extends BottomSheetDialogFragment
         }
         list.setAdapter(adapter);
         list.setNestedScrollingEnabled(true);
-
+        //添加输入框的监听，用于控制发送按钮的可视化
         et.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
@@ -151,12 +156,14 @@ public class CommentsBottomSheetDialogFragment extends BottomSheetDialogFragment
         }
         View dRoot = dialog.getWindow() != null ? dialog.getWindow().findViewById(com.google.android.material.R.id.design_bottom_sheet) : null;
         if (dRoot instanceof FrameLayout) {
+            //设置弹出窗口的高度
             FrameLayout bottomSheet = (FrameLayout) dRoot;
             bottomSheet.setBackground(new ColorDrawable(Color.TRANSPARENT));
             CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) bottomSheet.getLayoutParams();
             lp.height = getPeekHeight();
             bottomSheet.setLayoutParams(lp);
 
+            //设置弹出窗口的状态
             BottomSheetBehavior<FrameLayout> behavior = BottomSheetBehavior.from(bottomSheet);
             behavior.setPeekHeight(getPeekHeight());
             try { behavior.setDraggable(false); } catch (Throwable ignored) {}
@@ -177,6 +184,10 @@ public class CommentsBottomSheetDialogFragment extends BottomSheetDialogFragment
         return getResources().getDisplayMetrics().heightPixels;
     }
 
+    /**
+     * 获得弹出高度 默认是品目的60%
+     * @return
+     */
     private int getPeekHeight() {
         return (int) (getResources().getDisplayMetrics().heightPixels * 0.6f);
     }

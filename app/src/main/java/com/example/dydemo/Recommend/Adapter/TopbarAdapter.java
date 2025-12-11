@@ -14,12 +14,19 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TopbarAdapter extends RecyclerView.Adapter<TopbarAdapter.VH> {
+
+    //topbar的显示数据写死
     private List<String> data = Arrays.asList("购物","经验","同城","关注","商城","推荐");
+    //用于检测item是否被选中
     private int selected = -1;
     public interface OnItemClickListener { void onClick(int position, String label); }
     private OnItemClickListener listener;
     public void setOnItemClickListener(OnItemClickListener l) { this.listener = l; }
 
+    /**
+     * 用于设置当前item的选中情况，并且更新相应的item
+     * @param pos
+     */
     public void setSelected(int pos) {
         if (pos < 0 || pos >= data.size()) return;
         int old = selected;

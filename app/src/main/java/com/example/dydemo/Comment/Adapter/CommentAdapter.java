@@ -23,6 +23,10 @@ public class CommentAdapter extends RecyclerView.Adapter<commentViewHolder> {
         notifyDataSetChanged();
     }
 
+    /**
+     * 用于添加评论到评论列表顶部
+     * @param c
+     */
     public void addToTop(CommentBean c) {
         if (c == null) return;
         data.add(0, c);

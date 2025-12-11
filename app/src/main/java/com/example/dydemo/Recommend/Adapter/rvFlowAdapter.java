@@ -38,9 +38,11 @@ import java.util.List;
 
     @Override
     public void onBindViewHolder(@NonNull rvFlowViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        //设置其item 不占有所有高度，如果最后一个item单独一行显示，不设置这个就占整行了
         StaggeredGridLayoutManager.LayoutParams params = (StaggeredGridLayoutManager.LayoutParams)holder.itemView.getLayoutParams();
         params.setFullSpan(false);
         holder.itemView.setLayoutParams(params);
+        //设置点击时间的回调
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +52,7 @@ import java.util.List;
             }
         });
         TiktokBean data = mData.get(position);
+        //调用其viewholder的bind方法更新ui
         holder.bind(data);
     }
 

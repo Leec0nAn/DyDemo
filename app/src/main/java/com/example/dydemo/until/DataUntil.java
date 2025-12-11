@@ -22,6 +22,12 @@ public class DataUntil {
             .setDateFormat("yyyy-MM-dd HH:mm:ss")
             .create();
 
+    /**
+     * 用于解析存放在assets的json文件
+     * @param context
+     * @param fileName 文件名
+     * @return 获得相应的数据
+     */
     public static List<TiktokBean> parseFromAssets(Context context, String fileName) {
         try {
             InputStream inputStream = context.getAssets().open(fileName);
@@ -32,6 +38,13 @@ public class DataUntil {
             return new ArrayList<>();
         }
     }
+
+    /**
+     * 从文件流读取数据的方法
+     * @param inputStream 文件流对象
+     * @return
+     * @throws IOException
+     */
     private static String readStreamToString(InputStream inputStream) throws IOException {
         StringBuilder content = new StringBuilder();
         BufferedReader reader = new BufferedReader(
@@ -46,6 +59,11 @@ public class DataUntil {
         return content.toString();
     }
 
+    /**
+     * 调用Gson框架解析json文件
+     * @param jsonString
+     * @return
+     */
     public static List<TiktokBean> parseFromString(String jsonString) {
         try {
             Type type = new TypeToken<List<TiktokBean>>(){}.getType();
